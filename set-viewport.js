@@ -1,5 +1,8 @@
 #!/usr/bin/env node
 
+/**
+ * @return {?Promise}
+ */
 module.exports = function(ctx) {
     // make sure android platform is part of build
     if (!ctx.opts.platforms.includes('android')) {
@@ -16,7 +19,7 @@ module.exports = function(ctx) {
 
 /**
  * @param {Context} ctx Cordova HookRunner context object
- * @return {string} Path to main activity file for android project.
+ * @return {Object} Path to main activity file for android project.
  */
 function getConfig(ctx) {
     var path = ctx.requireCordovaModule('path');
