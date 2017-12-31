@@ -30,7 +30,7 @@ function getConfig(ctx) {
     var packageName = config.packageName();
     var activityName = config.android_activityName() || 'MainActivity';
     var packagePath = packageName.replace(/\./g, path.sep);
-    var activityPath = path.join(projectRoot, 'platforms/android/src', packagePath, activityName + '.java');
+    var activityPath = path.join(projectRoot, 'platforms/android/app/src/main/java', packagePath, activityName + '.java');
 
     var isXwalk = ctx.opts.cordova.plugins.includes('cordova-plugin-crosswalk-webview')
 
