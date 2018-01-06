@@ -22,6 +22,7 @@ module.exports = function(ctx) {
  * @return {Object} Path to main activity file for android project.
  */
 function getConfig(ctx) {
+    var fs = ctx.requireCordovaModule('fs'),
     var path = ctx.requireCordovaModule('path');
     var ConfigParser = ctx.requireCordovaModule('cordova-common').ConfigParser;
 
@@ -30,7 +31,12 @@ function getConfig(ctx) {
     var packageName = config.packageName();
     var activityName = config.android_activityName() || 'MainActivity';
     var packagePath = packageName.replace(/\./g, path.sep);
-    var activityPath = path.join(projectRoot, 'platforms/android/src', packagePath, activityName + '.java');
+
+    var activityPath = path.join(projectRoot, 'platforms/android/app/src/main/java', packagePath, activityName + '.java');
+    var isNewAndroidStructure = fs.existsSync(activityPath);
+    if (!isNewAndroidStructure) {
+      activityPath = path.join(projectRoot, 'platforms/android/src', packagePath, activityName + '.java');
+    }
 
     var isXwalk = ctx.opts.cordova.plugins.includes('cordova-plugin-crosswalk-webview')
 
