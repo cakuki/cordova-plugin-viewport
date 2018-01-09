@@ -22,7 +22,7 @@ module.exports = function(ctx) {
  * @return {Object} Path to main activity file for android project.
  */
 function getConfig(ctx) {
-    var fs = ctx.requireCordovaModule('fs'),
+    var fs = ctx.requireCordovaModule('fs');
     var path = ctx.requireCordovaModule('path');
     var ConfigParser = ctx.requireCordovaModule('cordova-common').ConfigParser;
 
