@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-viewport",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Sets Cordova app's web view to use wide (zoomed out) and device width sized viewport.",
   "cordova": {
     "id": "cordova-plugin-viewport",
