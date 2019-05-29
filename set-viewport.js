@@ -9,8 +9,8 @@ module.exports = function(ctx) {
         return;
     }
 
-    var fs = ctx.requireCordovaModule('fs'),
-        Q = ctx.requireCordovaModule('q'),
+    var fs = require('fs'),
+        Q = require('q'),
         config = getConfig(ctx),
         template = getTemplate(ctx, config);
 
@@ -22,8 +22,8 @@ module.exports = function(ctx) {
  * @return {Object} Path to main activity file for android project.
  */
 function getConfig(ctx) {
-    var fs = ctx.requireCordovaModule('fs');
-    var path = ctx.requireCordovaModule('path');
+    var fs = require('fs');
+    var path = require('path');
     var ConfigParser = ctx.requireCordovaModule('cordova-common').ConfigParser;
 
     var projectRoot = ctx.opts.projectRoot;
@@ -49,8 +49,8 @@ function getConfig(ctx) {
  * @return {string}
  */
 function getTemplate(ctx, config) {
-    var fs = ctx.requireCordovaModule('fs'),
-        path = ctx.requireCordovaModule('path'),
+    var fs = require('fs'),
+        path = require('path'),
         templatePath = path.join(ctx.opts.plugin.dir, 'templates', config.isXwalk ? 'xwalk.java' : 'default.java');
 
     return fs.readFileSync(templatePath, 'utf8')
