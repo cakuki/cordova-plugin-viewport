@@ -28,7 +28,7 @@ function getConfig(ctx) {
 
     var projectRoot = ctx.opts.projectRoot;
     var config = new ConfigParser(path.join(projectRoot, 'config.xml'));
-    var packageName = config.packageName();
+    var packageName = config.android_packageName() || config.packageName();
     var activityName = config.android_activityName() || 'MainActivity';
     var packagePath = packageName.replace(/\./g, path.sep);
 
